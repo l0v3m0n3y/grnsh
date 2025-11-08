@@ -29,7 +29,7 @@ proc get_ingredients_by_id*(id:int): Future[JsonNode] {.async.} =
   finally:
     client.close()
 
-proc cocktails_with_ingredients*(page:int=1,order:string="pos",direction:string="ASC"): Future[JsonNode] {.async.} =
+proc cocktails_with_ingredients*(): Future[JsonNode] {.async.} =
   let client = newAsyncHttpClient()
   client.headers = headers
   try:
@@ -49,7 +49,7 @@ proc get_cocktails_by_id*(id:int=1): Future[JsonNode] {.async.} =
   finally:
     client.close()
 
-proc get_cocktails*(page:int=1): Future[JsonNode] {.async.} =
+proc get_cocktails*(): Future[JsonNode] {.async.} =
   let client = newAsyncHttpClient()
   client.headers = headers
   try:
